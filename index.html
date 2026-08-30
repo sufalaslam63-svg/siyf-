@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مكتبة رفوف المجد</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- ===== الواجهة الأمامية ===== -->
+    <div id="frontend">
+        <header>
+            <div class="logo" onclick="showFrontend()">📚 رفوف <span>المجد</span></div>
+            <nav>
+                <ul>
+                    <li><a onclick="showFrontend()">الرئيسية</a></li>
+                    <li><a href="#books">الكتب</a></li>
+                    <li><a onclick="showAdmin()">لوحة التحكم</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="hero">
+            <h1>مكتبة رفوف المجد</h1>
+            <p>آلاف الكتب الإلكترونية في مختلف المجالات - اقرأ وحمّل مجاناً</p>
+            <a href="#books" class="btn">استكشف المكتبة</a>
+        </section>
+
+        <section id="books">
+            <h2 style="text-align: center; margin-bottom: 2rem; color: var(--primary);">📖 أحدث الكتب</h2>
+            <div class="books-grid" id="booksContainer"></div>
+        </section>
+
+        <footer>
+            <p>© 2026 مكتبة رفوف المجد - جميع الحقوق محفوظة</p>
+        </footer>
+    </div>
+
+    <!-- ===== لوحة التحكم ===== -->
+    <div class="admin-container" id="adminPanel">
+        <div class="admin-layout">
+            <aside class="sidebar">
+                <div class="sidebar-header">
+                    <h2>📚 رفوف المجد</h2>
+                    <p>لوحة التحكم</p>
+                </div>
+                <ul class="sidebar-menu">
+                    <li><a href="#" class="active">📊 لوحة التحكم</a></li>
+                    <li><a href="#" onclick="showAdmin()">📚 إدارة الكتب</a></li>
+                    <li><a onclick="showFrontend()">🏠 العودة للموقع</a></li>
+                </ul>
+            </aside>
+            
+            <main class="main-content">
+                <div class="page-header">
+                    <h1>إدارة الكتب</h1>
+                    <button class="btn-add" onclick="openModal()">+ إضافة كتاب</button>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>الكتاب</th>
+                                <th>المؤلف</th>
+                                <th>التصنيف</th>
+                                <th>التحميلات</th>
+                                <th>إجراءات</th>
+                            </tr>
+                        </thead>
+                        <tbody id="booksTableBody"></tbody>
+                    </table>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- نافذة إضافة/تعديل -->
+    <div class="modal" id="bookModal">
+        <div class="modal-content">
+            <h2 id="modalTitle">إضافة كتاب جديد</h2>
+            <br>
+            <form id="bookForm">
+                <div class="form-group">
+                    <label>عنوان الكتاب</label>
+                    <input type="text" id="bookTitle" required>
+                </div>
+                <div class="form-group">
+                    <label>المؤلف</label>
+                    <input type="text" id="bookAuthor" required>
+                </div>
+                <div class="form-group">
+                    <label>رابط صورة الكتاب</label>
+                    <input type="url" id="bookCover" placeholder="https://...">
+                </div>
+                <button type="submit" class="btn-save">حفظ الكتاب</button>
+                <button type="button" class="btn" style="background: #e74c3c; color: white; padding: 0.6rem 1rem; margin-top: 1rem;" onclick="closeModal()">إغلاق</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
